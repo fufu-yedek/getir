@@ -50,26 +50,31 @@ func (r mongoRepository) FindWithCount(f Filter) ([]RecordWithCount, error) {
 				},
 			},
 		},
+		{
+			"$sort": bson.M{
+				"totalCount": -1,
+			},
+		},
 	}
 
 	if match := GenerateMongoQuery(f); match != nil {
 		pipeline = append(pipeline, bson.M{"$match": match})
 	}
 
-	cur, err := r.collection().Aggregate(context.TODO(), pipeline)
+	cur, err := r.collection().Aggregate(context.Background(), pipeline)
 	if err != nil {
 		return nil, err
 	}
 
 	defer func() {
-		if err := cur.Close(context.TODO()); err != nil {
+		if err := cur.Close(context.Background()); err != nil {
 			logrus.WithField("location", "mongoRepository - Find()").
 				WithError(err).Error("error while closing cursor")
 		}
 	}()
 
 	var items []RecordWithCount
-	if err := cur.All(context.TODO(), &items); err != nil {
+	if err := cur.All(context.Background(), &items); err != nil {
 		return nil, err
 	}
 

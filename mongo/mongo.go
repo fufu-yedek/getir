@@ -12,7 +12,7 @@ var db *mongo.Database
 //Initialize responsible to initialize mongo db connection
 func Initialize(config config.Mongo) error {
 	opts := options.Client().ApplyURI(config.Uri)
-	client, err := mongo.Connect(context.TODO(), opts)
+	client, err := mongo.Connect(context.Background(), opts)
 
 	if err != nil {
 		return err

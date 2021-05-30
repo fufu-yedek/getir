@@ -13,7 +13,7 @@ func ParseJSON(req *http.Request, dest interface{}) error {
 	decoder := json.NewDecoder(req.Body)
 	decoder.DisallowUnknownFields()
 
-	return json.NewDecoder(req.Body).Decode(dest)
+	return decoder.Decode(dest)
 }
 
 func ParseQuery(req *http.Request, dest interface{}) error {

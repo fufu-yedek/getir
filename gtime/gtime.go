@@ -13,7 +13,7 @@ type JSONTime time.Time
 
 func (t *JSONTime) UnmarshalJSON(b []byte) error {
 	s := strings.Trim(string(b), "\"")
-	if s == "null" {
+	if s == "null" || s == "" {
 		*t = JSONTime{}
 		return nil
 	}
