@@ -36,7 +36,7 @@ func Initialize() error {
 		return err
 	}
 
-	byteConfig, err := ioutil.ReadFile(env.ConfigPath)
+	byteConfig, err := fileReaderFunc(env.ConfigPath)
 	if err != nil {
 		return err
 	}
@@ -54,3 +54,5 @@ func Initialize() error {
 func Get() Config {
 	return innerConfig
 }
+
+var fileReaderFunc = ioutil.ReadFile
