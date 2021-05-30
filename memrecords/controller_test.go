@@ -48,8 +48,13 @@ func Test_controller_CreateOrUpdate(t *testing.T) {
 			},
 			args: args{
 				params: CreateOrUpdateParams{
-					Key:   "active-tabs",
-					Value: "getir",
+					Body: struct {
+						Key   string `json:"key"`
+						Value string `json:"value"`
+					}(struct {
+						Key   string
+						Value string
+					}{Key: "active-tabs", Value: "getir"}),
 				},
 			},
 			want: SingleRecordResponse{
@@ -72,8 +77,13 @@ func Test_controller_CreateOrUpdate(t *testing.T) {
 			},
 			args: args{
 				params: CreateOrUpdateParams{
-					Key:   "active-tabs",
-					Value: "getir",
+					Body: struct {
+						Key   string `json:"key"`
+						Value string `json:"value"`
+					}(struct {
+						Key   string
+						Value string
+					}{Key: "active-tabs", Value: "getir"}),
 				},
 			},
 			want:    nil,

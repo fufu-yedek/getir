@@ -1,6 +1,7 @@
-# Getir-Challange
+# Getir-Challenge
 
 Application deployed on heroku [fufu-getir-challange.herokuapp.com](https://fufu-getir-challange.herokuapp.com/)
+[Documentation](https://fufu-getir-challange.herokuapp.com)
 
 ## Run Application
 

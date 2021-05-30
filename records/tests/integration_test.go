@@ -27,7 +27,7 @@ func TestRecords(t *testing.T) {
 		t.Fatal("could not initialize mongo connection")
 	}
 
-	mux := server.InitializeRoutes()
+	mux := server.InitializeRoutesForTest()
 
 	type params struct {
 		MinCount  int

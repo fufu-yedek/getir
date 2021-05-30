@@ -16,6 +16,17 @@ var server *http.Server
 func InitializeRoutes() *http.ServeMux {
 	mux := http.NewServeMux()
 
+	mux.Handle("/", http.FileServer(http.Dir("./static/docs")))
+
+	records.NewDefaultRouter().Register(mux)
+	memrecords.NewDefaultRouter().Register(mux)
+
+	return mux
+}
+
+func InitializeRoutesForTest() *http.ServeMux {
+	mux := http.NewServeMux()
+
 	records.NewDefaultRouter().Register(mux)
 	memrecords.NewDefaultRouter().Register(mux)
 

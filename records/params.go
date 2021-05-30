@@ -3,28 +3,32 @@ package records
 import (
 	"github.com/fufuceng/getir-challange/apihelper/errors"
 	"github.com/fufuceng/getir-challange/gtime"
-	"time"
 )
 
+//swagger:parameters Records List-Records
 type ListRecordParams struct {
-	StartDate gtime.JSONTime `json:"start_date"`
-	EndDate   gtime.JSONTime `json:"end_date"`
-	MinCount  uint           `json:"min_count"`
-	MaxCount  uint           `json:"max_count"`
-
-	ParsedStartDate time.Time `json:"-"`
-	ParsedEndDate   time.Time `json:"-"`
+	//in: body
+	Body struct {
+		//example: 2020-12-20
+		StartDate gtime.JSONTime `json:"start_date"`
+		//example: 2020-11-20
+		EndDate gtime.JSONTime `json:"end_date"`
+		//example: 30
+		MinCount uint `json:"min_count"`
+		//example: 50
+		MaxCount uint `json:"max_count"`
+	}
 }
 
 func (p ListRecordParams) Validate() error {
-	if p.MinCount > 0 && p.MaxCount > 0 {
-		if p.MinCount > p.MaxCount {
+	if p.Body.MinCount > 0 && p.Body.MaxCount > 0 {
+		if p.Body.MinCount > p.Body.MaxCount {
 			return errors.NewUserReadableErrf("min_count must be less than or equal to the max_count")
 		}
 	}
 
-	if !p.StartDate.ToTime().IsZero() && !p.EndDate.ToTime().IsZero() {
-		if p.StartDate.ToTime().After(p.EndDate.ToTime()) {
+	if !p.Body.StartDate.ToTime().IsZero() && !p.Body.EndDate.ToTime().IsZero() {
+		if p.Body.StartDate.ToTime().After(p.Body.EndDate.ToTime()) {
 			return errors.NewUserReadableErrf("start_date must be less than or equal to the end_date")
 		}
 	}

@@ -82,3 +82,11 @@ func writeJSON(w http.ResponseWriter, body interface{}, code int) {
 
 	return
 }
+
+// SwaggerErrorResponse created for documentation
+type SwaggerErrorResponse struct {
+	// example: 500
+	Code uint `json:"code"`
+	// example: "internal server error"
+	Msg string `json:"msg"`
+}

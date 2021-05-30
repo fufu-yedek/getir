@@ -40,8 +40,13 @@ func TestCreateOrUpdateParams_Validate(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			p := CreateOrUpdateParams{
-				Key:   tt.fields.Key,
-				Value: tt.fields.Value,
+				Body: struct {
+					Key   string `json:"key"`
+					Value string `json:"value"`
+				}(struct {
+					Key   string
+					Value string
+				}{Key: tt.fields.Key, Value: tt.fields.Value}),
 			}
 			if err := p.Validate(); (err != nil) != tt.wantErr {
 				t.Errorf("Validate() error = %v, wantErr %v", err, tt.wantErr)

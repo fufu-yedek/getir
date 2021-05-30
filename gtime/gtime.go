@@ -9,6 +9,7 @@ import (
 const ResponseFormat = "2006-01-02T15:04:05.999Z07:00"
 const RequestFormat = "2006-01-02"
 
+//swagger:strfmt string
 type JSONTime time.Time
 
 func (t *JSONTime) UnmarshalJSON(b []byte) error {

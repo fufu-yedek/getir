@@ -1,3 +1,19 @@
+// Getir Challenge
+//
+//
+//     Schemes: http, https
+//     Host: fufu-getir-challange.herokuapp.com
+//     BasePath: /
+//     Version: 0.0.1
+//     Contact: Furkan Aksoy<aksoyfurkan@pm.me> https://github.com/fufuceng
+//
+//     Consumes:
+//     - application/json
+//
+//     Produces:
+//     - application/json
+//
+// swagger:meta
 package main
 
 import (

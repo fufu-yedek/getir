@@ -1,0 +1,293 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "description": "Getir Challenge",
+    "contact": {
+      "name": "Furkan Aksoy",
+      "url": "https://github.com/fufuceng",
+      "email": "aksoyfurkan@pm.me"
+    },
+    "version": "0.0.1"
+  },
+  "host": "fufu-getir-challange.herokuapp.com",
+  "basePath": "/",
+  "paths": {
+    "/in-memory": {
+      "get": {
+        "description": "retrieve key-value pair",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "InMemory"
+        ],
+        "operationId": "Retrieve",
+        "parameters": [
+          {
+            "type": "string",
+            "example": "active-tabs",
+            "x-go-name": "Key",
+            "name": "key",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/inMemoryResponse"
+          },
+          "400": {
+            "$ref": "#/responses/inMemoryErrorResponse"
+          },
+          "500": {
+            "$ref": "#/responses/inMemoryErrorResponse"
+          }
+        }
+      },
+      "post": {
+        "description": "create or update key-value",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "InMemory"
+        ],
+        "operationId": "CreateOrUpdate",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "required": [
+                "key",
+                "value"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "x-go-name": "Key",
+                  "example": "active-tabs"
+                },
+                "value": {
+                  "type": "string",
+                  "x-go-name": "Value",
+                  "example": "getir"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/inMemoryResponse"
+          },
+          "400": {
+            "$ref": "#/responses/inMemoryErrorResponse"
+          },
+          "500": {
+            "$ref": "#/responses/inMemoryErrorResponse"
+          }
+        }
+      }
+    },
+    "/records": {
+      "post": {
+        "description": "List \u0026 filter records",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "http",
+          "https"
+        ],
+        "tags": [
+          "Records"
+        ],
+        "operationId": "List-Records",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "end_date": {
+                  "type": "string",
+                  "format": "string",
+                  "x-go-name": "EndDate",
+                  "example": "2020-11-20"
+                },
+                "max_count": {
+                  "type": "integer",
+                  "format": "uint64",
+                  "x-go-name": "MaxCount",
+                  "example": 50
+                },
+                "min_count": {
+                  "type": "integer",
+                  "format": "uint64",
+                  "x-go-name": "MinCount",
+                  "example": 30
+                },
+                "start_date": {
+                  "type": "string",
+                  "format": "string",
+                  "x-go-name": "StartDate",
+                  "example": "2020-12-20"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/responses/listRecordsSwaggerResponse"
+          },
+          "400": {
+            "$ref": "#/responses/listRecordsSwaggerErrorResponse"
+          },
+          "500": {
+            "$ref": "#/responses/listRecordsSwaggerErrorResponse"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SingleRecordResponse": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "string",
+          "x-go-name": "CreatedAt",
+          "example": "2017-01-28T01:22:14.398Z"
+        },
+        "key": {
+          "type": "string",
+          "x-go-name": "Key",
+          "example": "TAKwGc6Jr4i8Z487"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int64",
+          "x-go-name": "TotalCount",
+          "example": 2800
+        }
+      },
+      "x-go-package": "github.com/fufuceng/getir-challange/records"
+    }
+  },
+  "responses": {
+    "inMemoryErrorResponse": {
+      "description": "inMemoryErrorResponse",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "uint64",
+            "x-go-name": "Code",
+            "example": 500
+          },
+          "msg": {
+            "type": "string",
+            "x-go-name": "Msg",
+            "example": "\"internal server error\""
+          }
+        }
+      }
+    },
+    "inMemoryResponse": {
+      "description": "inMemoryResponse",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "x-go-name": "Key",
+            "example": "active-tabs"
+          },
+          "value": {
+            "type": "string",
+            "x-go-name": "Value",
+            "example": "getir"
+          }
+        }
+      }
+    },
+    "listRecordsSwaggerErrorResponse": {
+      "description": "listRecordsSwaggerErrorResponse",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "uint64",
+            "x-go-name": "Code",
+            "example": 500
+          },
+          "msg": {
+            "type": "string",
+            "x-go-name": "Msg",
+            "example": "\"internal server error\""
+          }
+        }
+      }
+    },
+    "listRecordsSwaggerResponse": {
+      "description": "listRecordsSwaggerResponse",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "uint64",
+            "x-go-name": "Code",
+            "example": 0
+          },
+          "msg": {
+            "type": "string",
+            "x-go-name": "Msg",
+            "example": "Success"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/SingleRecordResponse"
+            },
+            "x-go-name": "Records"
+          }
+        }
+      }
+    }
+  }
+}

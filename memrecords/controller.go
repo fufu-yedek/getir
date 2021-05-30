@@ -18,14 +18,31 @@ type controller struct {
 }
 
 func (c controller) CreateOrUpdate(params CreateOrUpdateParams) (response.Responder, error) {
+	// swagger:route POST /in-memory InMemory CreateOrUpdate
+	//
+	// create or update key-value
+	//
+	//     Produces:
+	//     - application/json
+	//
+	//     Consumes:
+	//     - application/json
+	//
+	//     Schemes: http, https
+	//
+	//     Responses:
+	//       200: inMemoryResponse
+	//       400: inMemoryErrorResponse
+	//       500: inMemoryErrorResponse
+
 	logger := logrus.WithFields(logrus.Fields{
 		"location": "Controller - CreateOrUpdate",
-		"params":   params,
+		"params":   params.Body,
 	})
 
 	record, err := c.repository.CreateOrUpdate(Record{
-		Key:   params.Key,
-		Value: params.Value,
+		Key:   params.Body.Key,
+		Value: params.Body.Value,
 	})
 
 	if err != nil {
@@ -37,6 +54,23 @@ func (c controller) CreateOrUpdate(params CreateOrUpdateParams) (response.Respon
 }
 
 func (c controller) Retrieve(params RetrieveParams) (response.Responder, error) {
+	// swagger:route GET /in-memory InMemory Retrieve
+	//
+	// retrieve key-value pair
+	//
+	//     Produces:
+	//     - application/json
+	//
+	//     Consumes:
+	//     - application/json
+	//
+	//     Schemes: http, https
+	//
+	//     Responses:
+	//       200: inMemoryResponse
+	//       400: inMemoryErrorResponse
+	//       500: inMemoryErrorResponse
+
 	logger := logrus.WithFields(logrus.Fields{
 		"location": "Controller - Retrieve",
 		"params":   params,

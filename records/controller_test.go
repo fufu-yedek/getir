@@ -128,10 +128,17 @@ func Test_controller_ListRecords(t *testing.T) {
 			tt.fields.RecordRepository.EXPECT().FindWithCount(tt.fields.Filter).Return(tt.fields.Response.Records, tt.fields.Response.Error)
 
 			got, err := c.ListRecords(ListRecordParams{
-				StartDate: gtime.JSONTime(tt.fields.Filter.StartDate),
-				EndDate:   gtime.JSONTime(tt.fields.Filter.EndDate),
-				MinCount:  tt.fields.Filter.MinCount,
-				MaxCount:  tt.fields.Filter.MaxCount,
+				Body: struct {
+					StartDate gtime.JSONTime `json:"start_date"`
+					EndDate   gtime.JSONTime `json:"end_date"`
+					MinCount  uint           `json:"min_count"`
+					MaxCount  uint           `json:"max_count"`
+				}(struct {
+					StartDate gtime.JSONTime
+					EndDate   gtime.JSONTime
+					MinCount  uint
+					MaxCount  uint
+				}{StartDate: gtime.JSONTime(tt.fields.Filter.StartDate), EndDate: gtime.JSONTime(tt.fields.Filter.EndDate), MinCount: tt.fields.Filter.MinCount, MaxCount: tt.fields.Filter.MaxCount}),
 			})
 
 			if (err != nil) != tt.wantErr {

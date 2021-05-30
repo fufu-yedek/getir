@@ -18,9 +18,9 @@ RUN go build -o getir-build .
 WORKDIR /dist
 
 RUN cp /build/getir-build .
-RUN cp /build/static/config.json .
+RUN cp -r /build/static/ ./static/
 
-ENV GETIR_CONFIG_PATH=/dist/config.json
+ENV GETIR_CONFIG_PATH=/dist/static/config.json
 
 # Export necessary port
 EXPOSE 8080

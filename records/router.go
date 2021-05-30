@@ -29,7 +29,7 @@ func (r router) ListRecords(w http.ResponseWriter, req *http.Request) {
 	logger := logrus.WithField("location", "Router - ListRecords")
 
 	var params ListRecordParams
-	if err := request.ParseJSON(req, &params); err != nil {
+	if err := request.ParseJSON(req, &params.Body); err != nil {
 		logger.WithError(err).Error("error while parsing request")
 		response.GenerateResponse(w, nil, apierrors.ErrInternalServer)
 		return

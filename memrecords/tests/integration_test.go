@@ -32,7 +32,7 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 		_ = inmem.Get().Close()
 	}()
 
-	mux := server.InitializeRoutes()
+	mux := server.InitializeRoutesForTest()
 
 	type params struct {
 		Key   string
@@ -168,7 +168,7 @@ func TestRetrieve(t *testing.T) {
 		_ = inmem.Get().Close()
 	}()
 
-	mux := server.InitializeRoutes()
+	mux := server.InitializeRoutesForTest()
 
 	type params struct {
 		Key string
