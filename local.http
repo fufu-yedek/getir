@@ -1,0 +1,21 @@
+POST http://localhost:8080/records
+Content-Type: application/json
+
+{
+  "min_count": 140,
+  "max_count": 150,
+  "start_date": "2015-01-07",
+  "end_date": "2015-03-13"
+}
+
+### Set inmem records
+POST http://localhost:8080/in-memory
+Content-Type: application/json
+
+{
+  "key": "active-tab",
+  "value": "getir"
+}
+
+### Get inmem records
+GET http://localhost:8080/in-memory?key=active-tab
