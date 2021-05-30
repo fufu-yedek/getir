@@ -46,6 +46,10 @@ func Initialize() error {
 		return err
 	}
 
+	if config.Env.Port != "" {
+		config.Server.Port = config.Env.Port
+	}
+
 	innerConfig = config
 	return nil
 }

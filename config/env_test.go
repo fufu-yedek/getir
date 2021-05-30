@@ -15,8 +15,8 @@ func Test_parseEnvironmentVariables(t *testing.T) {
 	}{
 		{
 			name:    "it should parse env variable correctly",
-			want:    Env{ConfigPath: "test-path"},
-			setEnv:  map[string]string{envConfigPath: "test-path"},
+			want:    Env{ConfigPath: "test-path", Port: "1234"},
+			setEnv:  map[string]string{envConfigPath: "test-path", envPort: "1234"},
 			wantErr: false,
 		},
 		{
@@ -24,6 +24,12 @@ func Test_parseEnvironmentVariables(t *testing.T) {
 			want:    Env{},
 			setEnv:  nil,
 			wantErr: true,
+		},
+		{
+			name:    "it should not return an error if port does not specified",
+			want:    Env{ConfigPath: "test-path"},
+			setEnv:  map[string]string{envConfigPath: "test-path"},
+			wantErr: false,
 		},
 	}
 	for _, tt := range tests {
