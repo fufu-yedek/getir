@@ -11,7 +11,7 @@ Use docker to run the application
 make build-docker
 ```
 
-## Running Tests
+## Run Tests
 
 Use docker to run tests (unit and integration)
 
