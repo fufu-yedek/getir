@@ -36,14 +36,15 @@ func InitializeRoutesForTest() *http.ServeMux {
 func Initialize(config config.Server) {
 	server = &http.Server{
 		Addr:         strings.Join([]string{config.Host, config.Port}, ":"),
-		ReadTimeout:  5 * time.Second,
-		WriteTimeout: 10 * time.Second,
-		IdleTimeout:  15 * time.Second,
+		ReadTimeout:  15 * time.Second,
+		WriteTimeout: 15 * time.Second,
+		IdleTimeout:  60 * time.Second,
 		Handler:      InitializeRoutes(),
 	}
 
 }
 
+//Run responsible to run server. It's blocking operation, please use carefully
 func Run() {
 	logger := logrus.WithField("location", "Run")
 

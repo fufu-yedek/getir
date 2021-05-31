@@ -60,6 +60,7 @@ func NewController(recordRepository Repository) Controller {
 	}
 }
 
+//NewDefaultController generates a new controller using MongoDB repository
 func NewDefaultController() Controller {
 	return NewController(NewDefaultMongoRepository())
 }

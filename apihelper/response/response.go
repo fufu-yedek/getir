@@ -13,17 +13,14 @@ var DefaultSuccessResponse = BaseResponse{
 	Msg:  "Success",
 }
 
+//Responder is the interface that wraps the basic Response method.
+//Response method responsible to generate API response object.
 type Responder interface {
 	Response() interface{}
 }
 
-type BaseResponse struct {
-	// example: 0
-	Code uint `json:"code"`
-	// example: Success
-	Msg string `json:"msg"`
-}
-
+//GenerateResponse writes given response into the http.ResponseWriter.
+//If errors is unknown it generates InternalServerError response
 func GenerateResponse(w http.ResponseWriter, resp Responder, dErr error) {
 	logger := logrus.WithField("location", "GenerateResponse")
 
@@ -83,10 +80,17 @@ func writeJSON(w http.ResponseWriter, body interface{}, code int) {
 	return
 }
 
+type BaseResponse struct {
+	// example: 0
+	Code uint `json:"code"`
+	// example: Success
+	Msg string `json:"msg"`
+}
+
 // SwaggerErrorResponse created for documentation
 type SwaggerErrorResponse struct {
 	// example: 500
 	Code uint `json:"code"`
-	// example: "internal server error"
+	// example: internal server error
 	Msg string `json:"msg"`
 }

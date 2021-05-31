@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/appleboy/gofight/v2"
 	"github.com/fufuceng/getir-challange/apihelper/response"
-	"github.com/fufuceng/getir-challange/inmem"
+	"github.com/fufuceng/getir-challange/bunt"
 	"github.com/fufuceng/getir-challange/memrecords"
 	"github.com/fufuceng/getir-challange/server"
 	"github.com/tidwall/buntdb"
@@ -14,12 +14,12 @@ import (
 )
 
 func TestCreateOrUpdateRecords(t *testing.T) {
-	if err := inmem.Initialize(); err != nil {
+	if err := bunt.Initialize(); err != nil {
 		t.Fatal("could not initialize in-memory db")
 	}
 
 	// prepare
-	err := inmem.Get().Update(func(tx *buntdb.Tx) error {
+	err := bunt.Get().Update(func(tx *buntdb.Tx) error {
 		_, _, err := tx.Set("exist", "value", nil)
 		return err
 	})
@@ -29,7 +29,7 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 	}
 
 	defer func() {
-		_ = inmem.Get().Close()
+		_ = bunt.Get().Close()
 	}()
 
 	mux := server.InitializeRoutesForTest()
@@ -126,7 +126,7 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 
 			if tt.code == http.StatusOK {
 				var gotVal string
-				err := inmem.Get().View(func(tx *buntdb.Tx) error {
+				err := bunt.Get().View(func(tx *buntdb.Tx) error {
 					val, err := tx.Get(tt.params.Key)
 					if err != nil {
 						return err
@@ -150,12 +150,12 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 }
 
 func TestRetrieve(t *testing.T) {
-	if err := inmem.Initialize(); err != nil {
+	if err := bunt.Initialize(); err != nil {
 		t.Fatal("could not initialize in-memory db")
 	}
 
 	// prepare
-	err := inmem.Get().Update(func(tx *buntdb.Tx) error {
+	err := bunt.Get().Update(func(tx *buntdb.Tx) error {
 		_, _, err := tx.Set("active-tabs", "getir", nil)
 		return err
 	})
@@ -165,7 +165,7 @@ func TestRetrieve(t *testing.T) {
 	}
 
 	defer func() {
-		_ = inmem.Get().Close()
+		_ = bunt.Get().Close()
 	}()
 
 	mux := server.InitializeRoutesForTest()

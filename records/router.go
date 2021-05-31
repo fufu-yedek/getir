@@ -51,6 +51,7 @@ func NewRouter(rc Controller) Router {
 	}
 }
 
+//NewDefaultRouter generates a new router using MongoDB controller
 func NewDefaultRouter() Router {
 	return NewRouter(NewDefaultController())
 }

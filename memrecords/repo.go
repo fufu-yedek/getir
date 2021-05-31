@@ -2,8 +2,8 @@ package memrecords
 
 import (
 	"errors"
+	"github.com/fufuceng/getir-challange/bunt"
 	"github.com/fufuceng/getir-challange/gerrors"
-	"github.com/fufuceng/getir-challange/inmem"
 	"github.com/tidwall/buntdb"
 )
 
@@ -56,5 +56,5 @@ func NewInMemRepository(with *buntdb.DB) Repository {
 }
 
 func NewDefaultInMemRepository() Repository {
-	return NewInMemRepository(inmem.Get())
+	return NewInMemRepository(bunt.Get())
 }

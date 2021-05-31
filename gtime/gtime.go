@@ -9,6 +9,7 @@ import (
 const ResponseFormat = "2006-01-02T15:04:05.999Z07:00"
 const RequestFormat = "2006-01-02"
 
+//JSONTime is a type that is responsible to parse and stringify given time values according to the expected format.
 //swagger:strfmt string
 type JSONTime time.Time
 

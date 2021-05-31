@@ -17,8 +17,8 @@
 package main
 
 import (
+	"github.com/fufuceng/getir-challange/bunt"
 	"github.com/fufuceng/getir-challange/config"
-	"github.com/fufuceng/getir-challange/inmem"
 	"github.com/fufuceng/getir-challange/mongo"
 	"github.com/fufuceng/getir-challange/server"
 	"github.com/sirupsen/logrus"
@@ -35,7 +35,7 @@ func main() {
 		return
 	}
 
-	if err := inmem.Initialize(); err != nil {
+	if err := bunt.Initialize(); err != nil {
 		logrus.WithError(err).Error("error while initializing in-memory db")
 	}
 

@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+//Filter stores filterable fields of the record
 type Filter struct {
 	StartDate time.Time
 	EndDate   time.Time
@@ -29,6 +30,7 @@ func (f Filter) Validate() error {
 	return nil
 }
 
+//GenerateMongoQuery generates a mongo db query from given filters
 func GenerateMongoQuery(from Filter) bson.M {
 	var q []bson.M
 

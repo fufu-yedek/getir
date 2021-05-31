@@ -5,7 +5,6 @@ import (
 	"time"
 )
 
-//Record is a model of mongo db document
 type Record struct {
 	ID        primitive.ObjectID `bson:"_id"`
 	Key       string             `bson:"key"`

@@ -11,10 +11,12 @@ import (
 
 const mongoCollectionName = "records"
 
+//Repository is the interface that wraps the required methods to communicate with the DB
 type Repository interface {
 	FindWithCount(Filter) ([]RecordWithCount, error)
 }
 
+//mongoRepository implements the Repository interface to interact with the mongo DB
 type mongoRepository struct {
 	conn *mongo.Database
 }
@@ -85,10 +87,12 @@ func (r mongoRepository) FindWithCount(f Filter) ([]RecordWithCount, error) {
 	return items, nil
 }
 
+//NewMongoRepository creates a new mongo repository.
 func NewMongoRepository(withDB *mongo.Database) Repository {
 	return mongoRepository{conn: withDB}
 }
 
+//NewDefaultMongoRepository creates a new mongo repository using current db object.
 func NewDefaultMongoRepository() Repository {
 	return NewMongoRepository(internalMongo.Get())
 }

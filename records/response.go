@@ -1,7 +1,7 @@
 package records
 
 import (
-	response2 "github.com/fufuceng/getir-challange/apihelper/response"
+	apiresponse "github.com/fufuceng/getir-challange/apihelper/response"
 	"github.com/fufuceng/getir-challange/gtime"
 )
 
@@ -15,7 +15,7 @@ type SingleRecordResponse struct {
 }
 
 type ListRecordsResponse struct {
-	response2.BaseResponse
+	apiresponse.BaseResponse
 	Records []SingleRecordResponse `json:"records"`
 }
 
@@ -25,7 +25,7 @@ type ListRecordsSerializer struct {
 
 func (s ListRecordsSerializer) Response() interface{} {
 	resp := ListRecordsResponse{
-		BaseResponse: response2.DefaultSuccessResponse,
+		BaseResponse: apiresponse.DefaultSuccessResponse,
 		Records:      []SingleRecordResponse{},
 	}
 

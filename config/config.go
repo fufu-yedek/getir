@@ -9,7 +9,6 @@ var innerConfig Config
 
 type Config struct {
 	Server Server `json:"server"`
-	Log    Log    `json:"log"`
 	Mongo  Mongo  `json:"mongo"`
 	Env    Env    `json:"-"`
 }
@@ -22,11 +21,6 @@ type Mongo struct {
 type Server struct {
 	Host string `json:"host"`
 	Port string `json:"port"`
-}
-
-type Log struct {
-	Level string `json:"level"`
-	Json  bool   `json:"json"`
 }
 
 // Initialize parse and build new config instance using environment variables
@@ -54,7 +48,6 @@ func Initialize() error {
 	return nil
 }
 
-// Get returns config object
 func Get() Config {
 	return innerConfig
 }
