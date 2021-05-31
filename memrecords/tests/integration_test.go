@@ -19,7 +19,7 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 	}
 
 	// prepare
-	err := bunt.Get().Update(func(tx *buntdb.Tx) error {
+	err := bunt.DB().Update(func(tx *buntdb.Tx) error {
 		_, _, err := tx.Set("exist", "value", nil)
 		return err
 	})
@@ -29,7 +29,7 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 	}
 
 	defer func() {
-		_ = bunt.Get().Close()
+		_ = bunt.DB().Close()
 	}()
 
 	mux := server.InitializeRoutesForTest()
@@ -126,7 +126,7 @@ func TestCreateOrUpdateRecords(t *testing.T) {
 
 			if tt.code == http.StatusOK {
 				var gotVal string
-				err := bunt.Get().View(func(tx *buntdb.Tx) error {
+				err := bunt.DB().View(func(tx *buntdb.Tx) error {
 					val, err := tx.Get(tt.params.Key)
 					if err != nil {
 						return err
@@ -155,7 +155,7 @@ func TestRetrieve(t *testing.T) {
 	}
 
 	// prepare
-	err := bunt.Get().Update(func(tx *buntdb.Tx) error {
+	err := bunt.DB().Update(func(tx *buntdb.Tx) error {
 		_, _, err := tx.Set("active-tabs", "getir", nil)
 		return err
 	})
@@ -165,7 +165,7 @@ func TestRetrieve(t *testing.T) {
 	}
 
 	defer func() {
-		_ = bunt.Get().Close()
+		_ = bunt.DB().Close()
 	}()
 
 	mux := server.InitializeRoutesForTest()

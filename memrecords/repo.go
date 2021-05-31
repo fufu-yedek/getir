@@ -56,5 +56,5 @@ func NewInMemRepository(with *buntdb.DB) Repository {
 }
 
 func NewDefaultInMemRepository() Repository {
-	return NewInMemRepository(bunt.Get())
+	return NewInMemRepository(bunt.DB())
 }

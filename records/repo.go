@@ -94,5 +94,5 @@ func NewMongoRepository(withDB *mongo.Database) Repository {
 
 //NewDefaultMongoRepository creates a new mongo repository using current db object.
 func NewDefaultMongoRepository() Repository {
-	return NewMongoRepository(internalMongo.Get())
+	return NewMongoRepository(internalMongo.DB())
 }

@@ -22,7 +22,7 @@ func Initialize(config config.Mongo) error {
 	return nil
 }
 
-//Get responsible to serve mongo connection object
-func Get() *mongo.Database {
+//DB responsible to serve mongo connection object
+func DB() *mongo.Database {
 	return db
 }

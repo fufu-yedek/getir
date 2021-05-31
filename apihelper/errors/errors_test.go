@@ -23,7 +23,7 @@ func TestNewUserReadableErrf(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := NewUserReadableErrf(tt.args.s, tt.args.args...)
+			err := NewErrUserReadable(tt.args.s, tt.args.args...)
 
 			if err == nil {
 				t.Errorf("err sohuld not be nil")

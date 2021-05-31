@@ -23,13 +23,13 @@ type ListRecordParams struct {
 func (p ListRecordParams) Validate() error {
 	if p.Body.MinCount > 0 && p.Body.MaxCount > 0 {
 		if p.Body.MinCount > p.Body.MaxCount {
-			return errors.NewUserReadableErrf("min_count must be less than or equal to the max_count")
+			return errors.NewErrUserReadable("min_count must be less than or equal to the max_count")
 		}
 	}
 
 	if !p.Body.StartDate.ToTime().IsZero() && !p.Body.EndDate.ToTime().IsZero() {
 		if p.Body.StartDate.ToTime().After(p.Body.EndDate.ToTime()) {
-			return errors.NewUserReadableErrf("start_date must be less than or equal to the end_date")
+			return errors.NewErrUserReadable("start_date must be less than or equal to the end_date")
 		}
 	}
 

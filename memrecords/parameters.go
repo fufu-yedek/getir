@@ -17,11 +17,11 @@ type CreateOrUpdateParams struct {
 
 func (p CreateOrUpdateParams) Validate() error {
 	if p.Body.Key == "" {
-		return errors.NewUserReadableErrf("key field must be filled")
+		return errors.NewErrUserReadable("key field must be filled")
 	}
 
 	if p.Body.Value == "" {
-		return errors.NewUserReadableErrf("value field must be filled")
+		return errors.NewErrUserReadable("value field must be filled")
 	}
 
 	return nil
@@ -37,7 +37,7 @@ type RetrieveParams struct {
 
 func (p RetrieveParams) Validate() error {
 	if p.Key == "" {
-		return errors.NewUserReadableErrf("key field must be filled")
+		return errors.NewErrUserReadable("key field must be filled")
 	}
 
 	return nil

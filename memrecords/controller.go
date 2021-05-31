@@ -83,7 +83,7 @@ func (c controller) Retrieve(params RetrieveParams) (response.Responder, error) 
 	if err != nil {
 		if errors.Is(err, gerrors.ErrRecordNotFound) {
 			logrus.WithError(err).Warn("could not find record")
-			return nil, apierrors.NewUserReadableErrf("could not find record")
+			return nil, apierrors.NewErrUserReadable("could not find record")
 		}
 
 		logger.WithError(err).Error("error while finding record")

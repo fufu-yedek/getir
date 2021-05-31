@@ -11,6 +11,6 @@ func Initialize() error {
 	return err
 }
 
-func Get() *buntdb.DB {
+func DB() *buntdb.DB {
 	return conn
 }
