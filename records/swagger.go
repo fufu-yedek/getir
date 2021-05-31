@@ -1,6 +1,6 @@
 package records
 
-import "github.com/fufuceng/getir-challange/apihelper/response"
+import "github.com/fufu-yedek/getir-challange/apihelper/response"
 
 // listRecordsSwaggerResponse
 // swagger:response listRecordsSwaggerResponse

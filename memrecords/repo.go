@@ -2,8 +2,8 @@ package memrecords
 
 import (
 	"errors"
-	"github.com/fufuceng/getir-challange/bunt"
-	"github.com/fufuceng/getir-challange/gerrors"
+	"github.com/fufu-yedek/getir-challange/bunt"
+	"github.com/fufu-yedek/getir-challange/gerrors"
 	"github.com/tidwall/buntdb"
 )
 

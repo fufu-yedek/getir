@@ -2,7 +2,7 @@ package memrecords
 
 import (
 	"fmt"
-	"github.com/fufuceng/getir-challange/gerrors"
+	"github.com/fufu-yedek/getir-challange/gerrors"
 	"github.com/golang/mock/gomock"
 	"reflect"
 	"testing"

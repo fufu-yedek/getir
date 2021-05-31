@@ -3,7 +3,7 @@ package response
 import (
 	"encoding/json"
 	"errors"
-	apierrors "github.com/fufuceng/getir-challange/apihelper/errors"
+	apierrors "github.com/fufu-yedek/getir-challange/apihelper/errors"
 	"github.com/sirupsen/logrus"
 	"net/http"
 )

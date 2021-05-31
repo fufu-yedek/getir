@@ -1,6 +1,6 @@
 package memrecords
 
-import "github.com/fufuceng/getir-challange/apihelper/errors"
+import "github.com/fufu-yedek/getir-challange/apihelper/errors"
 
 //swagger:parameters InMemory CreateOrUpdate
 type CreateOrUpdateParams struct {

@@ -1,8 +1,8 @@
 package records
 
 import (
-	"github.com/fufuceng/getir-challange/apihelper/errors"
-	"github.com/fufuceng/getir-challange/gtime"
+	"github.com/fufu-yedek/getir-challange/apihelper/errors"
+	"github.com/fufu-yedek/getir-challange/gtime"
 )
 
 //swagger:parameters Records List-Records

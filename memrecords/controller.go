@@ -2,9 +2,9 @@ package memrecords
 
 import (
 	"errors"
-	apierrors "github.com/fufuceng/getir-challange/apihelper/errors"
-	"github.com/fufuceng/getir-challange/apihelper/response"
-	"github.com/fufuceng/getir-challange/gerrors"
+	apierrors "github.com/fufu-yedek/getir-challange/apihelper/errors"
+	"github.com/fufu-yedek/getir-challange/apihelper/response"
+	"github.com/fufu-yedek/getir-challange/gerrors"
 	"github.com/sirupsen/logrus"
 )
 

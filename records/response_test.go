@@ -1,8 +1,8 @@
 package records
 
 import (
-	"github.com/fufuceng/getir-challange/apihelper/response"
-	"github.com/fufuceng/getir-challange/gtime"
+	"github.com/fufu-yedek/getir-challange/apihelper/response"
+	"github.com/fufu-yedek/getir-challange/gtime"
 	"reflect"
 	"testing"
 	"time"

@@ -1,7 +1,7 @@
 package records
 
 import (
-	"github.com/fufuceng/getir-challange/gtime"
+	"github.com/fufu-yedek/getir-challange/gtime"
 	"testing"
 	"time"
 )

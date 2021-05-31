@@ -2,8 +2,8 @@ package records
 
 import (
 	"context"
-	"github.com/fufuceng/getir-challange/gerrors"
-	internalMongo "github.com/fufuceng/getir-challange/mongo"
+	"github.com/fufu-yedek/getir-challange/gerrors"
+	internalMongo "github.com/fufu-yedek/getir-challange/mongo"
 	"github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

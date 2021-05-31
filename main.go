@@ -17,10 +17,10 @@
 package main
 
 import (
-	"github.com/fufuceng/getir-challange/bunt"
-	"github.com/fufuceng/getir-challange/config"
-	"github.com/fufuceng/getir-challange/mongo"
-	"github.com/fufuceng/getir-challange/server"
+	"github.com/fufu-yedek/getir-challange/bunt"
+	"github.com/fufu-yedek/getir-challange/config"
+	"github.com/fufu-yedek/getir-challange/mongo"
+	"github.com/fufu-yedek/getir-challange/server"
 	"github.com/sirupsen/logrus"
 )
 

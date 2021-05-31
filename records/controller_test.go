@@ -2,9 +2,9 @@ package records
 
 import (
 	"fmt"
-	response2 "github.com/fufuceng/getir-challange/apihelper/response"
-	"github.com/fufuceng/getir-challange/gerrors"
-	"github.com/fufuceng/getir-challange/gtime"
+	response2 "github.com/fufu-yedek/getir-challange/apihelper/response"
+	"github.com/fufu-yedek/getir-challange/gerrors"
+	"github.com/fufu-yedek/getir-challange/gtime"
 	"github.com/golang/mock/gomock"
 	"reflect"
 	"testing"

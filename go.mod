@@ -1,4 +1,4 @@
-module github.com/fufuceng/getir-challange
+module github.com/fufu-yedek/getir-challange
 
 go 1.15
 

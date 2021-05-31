@@ -203,7 +203,7 @@
           "example": 2800
         }
       },
-      "x-go-package": "github.com/fufuceng/getir-challange/records"
+      "x-go-package": "github.com/fufu-yedek/getir-challange/records"
     }
   },
   "responses": {
@@ -221,7 +221,7 @@
           "msg": {
             "type": "string",
             "x-go-name": "Msg",
-            "example": "\"internal server error\""
+            "example": "internal server error"
           }
         }
       }
@@ -258,7 +258,7 @@
           "msg": {
             "type": "string",
             "x-go-name": "Msg",
-            "example": "\"internal server error\""
+            "example": "internal server error"
           }
         }
       }

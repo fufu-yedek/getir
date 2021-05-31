@@ -2,9 +2,9 @@ package server
 
 import (
 	"errors"
-	"github.com/fufuceng/getir-challange/config"
-	"github.com/fufuceng/getir-challange/memrecords"
-	"github.com/fufuceng/getir-challange/records"
+	"github.com/fufu-yedek/getir-challange/config"
+	"github.com/fufu-yedek/getir-challange/memrecords"
+	"github.com/fufu-yedek/getir-challange/records"
 	"github.com/sirupsen/logrus"
 	"net/http"
 	"strings"

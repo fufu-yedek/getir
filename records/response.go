@@ -1,8 +1,8 @@
 package records
 
 import (
-	apiresponse "github.com/fufuceng/getir-challange/apihelper/response"
-	"github.com/fufuceng/getir-challange/gtime"
+	apiresponse "github.com/fufu-yedek/getir-challange/apihelper/response"
+	"github.com/fufu-yedek/getir-challange/gtime"
 )
 
 type SingleRecordResponse struct {

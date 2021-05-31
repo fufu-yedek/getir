@@ -2,7 +2,7 @@ package mongo
 
 import (
 	"context"
-	"github.com/fufuceng/getir-challange/config"
+	"github.com/fufu-yedek/getir-challange/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
